@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-using Uindies.Library;
+using UIndies.Library;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
@@ -61,6 +61,8 @@ namespace App
             InitializeComponent();
             
             RegCommon.Init(@"config\filecrd\");
+            
+            users = new List<UserHistory>();
             
             layout = new FormLayout(this);
             layout.AddControl(txtResult, FormLayoutRule.None, FormLayoutRule.None, FormLayoutRule.None, FormLayoutRule.LinkBottom);
@@ -212,7 +214,14 @@ namespace App
                 {
                     if (chkRegex.Checked == false)
                     {
-                        newfile = file.Replace(txtBefore.Text, txtAfter.Text);
+                        if (txtBefore.Text.Length == 0)
+                        {
+                            newfile = txtAfter.Text + file;
+                        }
+                        else
+                        {
+                            newfile = file.Replace(txtBefore.Text, txtAfter.Text);
+                        }
                     }
                     else
                     {
@@ -512,7 +521,7 @@ namespace App
                 {
                     if (radDelete.Checked == true)
                     {
-                        if (FileIO.Exists(files[i]) == true)
+                        if (File.Exists(files[i]) == true)
                         {
                             File.Delete(files[i]);
                         }
@@ -520,7 +529,7 @@ namespace App
                     else
                     if (radCopy.Checked == true)
                     {
-                        if (FileIO.Exists(dir + @"\" + newfile) == true)
+                        if (File.Exists(dir + @"\" + newfile) == true)
                         {
                             File.Delete(dir + @"\" + newfile);
                         }
@@ -529,7 +538,7 @@ namespace App
                     else
                     if (radRename.Checked == true)
                     {
-                        if (FileIO.Exists(dir + @"\" + newfile) == true)
+                        if (File.Exists(dir + @"\" + newfile) == true)
                         {
                             File.Delete(dir + @"\" + newfile);
                         }
@@ -582,10 +591,6 @@ namespace App
             string json = Cast.String(RegCommon.Read("history"));
             
             users = JsonConvert.DeserializeObject<List<UserHistory>>(json);
-            if (users == null)
-            {
-                users = new List<UserHistory>();
-            }
             refreshHistory();
         }
         
