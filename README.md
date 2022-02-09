@@ -2,7 +2,7 @@
 フォルダ以下の全てのファイルに対して一括処理（コピー or リネーム or デリート）を行います。  
 
 ## Screen Shot
-![image](https://user-images.githubusercontent.com/85425896/122248116-d11aa280-cf02-11eb-964e-9984654b0a1b.png)
+![image](https://user-images.githubusercontent.com/85425896/122253646-51430700-cf07-11eb-8f0a-6bad4979e2b4.png)
 
 ## Target
 **Windows10 / .Net Framework 4.6.1**  
