@@ -10,8 +10,9 @@ using System.IO;
 
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using UIndies.Library;
 
-namespace UIndies.Library
+namespace App
 {
     /// <summary>
     /// 
@@ -616,7 +617,7 @@ namespace UIndies.Library
                             }
                             else
                             {
-                                //if (FileIO.Exists(newpath) == true)
+                                //if (File.Exists(newpath) == true)
                                 //{
                                 //    File.Delete(newpath);
                                 //}

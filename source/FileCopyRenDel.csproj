@@ -104,8 +104,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set TEMPHOME=$(SolutionDir)bin\
-%25TEMPHOME%25config\ILMerge /ndebug /targetplatform:v4 /wildcards /out:%25TEMPHOME%25$(TargetFileName) $(TargetDir)$(TargetFileName) $(TargetDir)*.dll</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

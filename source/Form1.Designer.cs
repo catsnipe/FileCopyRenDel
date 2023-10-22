@@ -1,4 +1,4 @@
-﻿namespace UIndies.Library
+﻿namespace App
 {
 	partial class Form1
 	{
